@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lvgu.industrynew.mapper.ISysUserMapper">
+
+    <resultMap type="com.lvgu.industrynew.entity.SysUserEntity" id="sysUserMap">
+        <result property="id" column="id"/>
+        <result property="userName" column="user_name"/>
+        <result property="loginName" column="login_name"/>
+        <result property="password" column="password"/>
+        <result property="salt" column="salt"/>
+        <result property="isOnline" column="is_online"/>
+        <result property="isLocked" column="is_locked"/>
+        <result property="isSystem" column="is_system"/>
+        <result property="registerIp" column="register_ip"/>
+        <result property="loginTime" column="login_time"/>
+        <result property="loginIp" column="login_ip"/>
+        <result property="loginCount" column="login_count"/>
+        <result property="userType" column="user_type"/>
+        <result property="headPic" column="head_pic"/>
+        <result property="cardno" column="cardno"/>
+        <result property="address" column="address"/>
+        <result property="phone" column="phone"/>
+        <result property="sex" column="sex"/>
+        <result property="birthday" column="birthday"/>
+        <result property="companyId" column="company_id"/>
+        <result property="rfid" column="rfid"/>
+        <result property="worknum" column="worknum"/>
+        <result property="stationIds" column="station_ids"/>
+        <result property="wxid" column="wxid"/>
+        <result property="token" column="token"/>
+        <result property="teamId" column="team_id"/>
+        <result property="jurisdiction" column="jurisdiction"/>
+        <result property="email" column="email"/>
+        <result property="content" column="content"/>
+        <result property="integral" column="integral"/>
+        <result property="scale" column="scale"/>
+        <result property="idCardFront" column="id_card_front"/>
+        <result property="idCardBack" column="id_card_back"/>
+        <result property="estate" column="estate"/>
+        <result property="province" column="province"/>
+        <result property="city" column="city"/>
+        <result property="area" column="area"/>
+        <result property="location" column="location"/>
+        <result property="adminLabel" column="admin_label"/>
+        <result property="modifyPasswordNum" column="modify_password_num"/>
+        <result property="creator" column="creator"/>
+        <result property="createrName" column="creater_name"/>
+        <result property="createDate" column="create_date"/>
+        <result property="updator" column="updator"/>
+        <result property="updaterName" column="updater_name"/>
+        <result property="updateDate" column="update_date"/>
+        <result property="deleted" column="deleted"/>
+    </resultMap>
+
+    <select id="selectListByQure" parameterType="java.lang.String" resultType="com.lvgu.industrynew.entity.SysUserEntity">
+        select * from sys_user where loginname = #{loginName}
+    </select>
+</mapper>

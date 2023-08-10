@@ -1,0 +1,51 @@
+server:
+  port: 10002
+  servlet:
+    context-path: /industrynew
+spring:
+  profiles:
+    active: dev
+  application:
+    name: industrynew
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+  servlet:
+    multipart:
+      max-file-size:
+        500MB         #最大支持文件大小
+      max-request-size:
+        500MB        #最大请求大小
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  global-config:
+    db-config:
+      logic-delete-field: deleted  # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置步骤2)
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# Minio配置
+minio:
+  # minio配置的地址，端口9000
+  url: http://47.94.155.198:9320
+  # 账号
+  accessKey: HzJKd0KK2sswcp8F
+  # 密码
+  secretKey: WzLPCTlcl8zq2K9Nh5a4rzwxva74UFix
+  # MinIO桶名字
+  bucketName: countyfarm
+
+# 配置日志级别
+logging:
+  level:
+    org:
+      springframework: DEBUG
+  file:
+    name: application.log # 配置日志输出目标
+    max-size: 10MB  # 配置日志文件的滚动策略
+  pattern:
+    console: '%d %p [%c] - %m%n'  # 配置日志格式
+    enabled: false  # 配置日志输出到控制台

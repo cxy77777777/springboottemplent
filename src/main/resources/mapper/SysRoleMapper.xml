@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lvgu.industrynew.mapper.ISysRoleMapper">
+
+    <resultMap type="com.lvgu.industrynew.entity.SysRoleEntity" id="sysRoleMap">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="code" column="code"/>
+        <result property="aliasName" column="alias_name"/>
+        <result property="isEnabled" column="is_enabled"/>
+        <result property="unitid" column="unitid"/>
+        <result property="description" column="description"/>
+        <result property="location" column="location"/>
+        <result property="creator" column="creator"/>
+        <result property="createrName" column="creater_name"/>
+        <result property="createDate" column="create_date"/>
+        <result property="updator" column="updator"/>
+        <result property="updaterName" column="updater_name"/>
+        <result property="updateDate" column="update_date"/>
+        <result property="deleted" column="deleted"/>
+    </resultMap>
+
+
+</mapper>

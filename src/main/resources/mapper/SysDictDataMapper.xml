@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lvgu.industrynew.mapper.SysDictDataMapper">
+
+    <resultMap type="com.lvgu.industrynew.entity.SysDictDataEntity" id="longactionSysDictDataMap">
+        <result property="id" column="id"/>
+        <result property="dictTypeId" column="dict_type_id"/>
+        <result property="dictLabel" column="dict_label"/>
+        <result property="dictValue" column="dict_value"/>
+        <result property="remark" column="remark"/>
+        <result property="sort" column="sort"/>
+        <result property="creator" column="creator"/>
+        <result property="createDate" column="create_date"/>
+        <result property="updater" column="updater"/>
+        <result property="updateDate" column="update_date"/>
+    </resultMap>
+    <sql id="selectDictDataCloums">
+      id,dict_type_id,dict_label,dict_value,remark,sort,creator,create_date,updater,update_date
+    </sql>
+
+    <select id="getListByTypeAndValue" parameterType="java.lang.String" resultMap="longactionSysDictDataMap">
+      select <include refid="selectDictDataCloums"></include>
+        from longaction_sys_dict_data where dict_type_id = #{dictTypeId} and dict_value = #{dictValue}
+    </select>
+
+    <delete id="deleteByIdd" parameterType="java.lang.String">
+        delete FROM  longaction_sys_dict_data where id = #{id}
+    </delete>
+
+    <select id="getListByType" parameterType="java.lang.String" resultMap="longactionSysDictDataMap">
+      select dd.id,dd.dict_type_id,dd.dict_label,dd.dict_value,dd.remark,dd.sort,
+      dd.creator,dd.create_date,dd.updater,dd.update_date
+      from longaction_sys_dict_data dd left join longaction_sys_dict_type dt on dd.dict_type_id = dt.id
+      where dt.dict_type = #{dictType}
+    </select>
+</mapper>
