@@ -1,5 +1,8 @@
 package com.lvgu.industrynew;
 
+import com.lvgu.industrynew.entity.SysUserEntity;
+import com.lvgu.industrynew.mapper.ISysMenuMapper;
+import com.lvgu.industrynew.mapper.ISysUserMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,9 +21,9 @@ public class MapperTest {
     private PasswordEncoder passwordEncoder;
 
     @Autowired
-    private UserMapper userMapper;
+    private ISysUserMapper userMapper;
     @Autowired
-    private SysMenuMapper sysMenuMapper;
+    private ISysMenuMapper sysMenuMapper;
 
     @Test
     public void testUserMapper(){
